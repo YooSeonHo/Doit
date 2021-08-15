@@ -7,6 +7,20 @@ class TestView(TestCase):
     def setUp(self):
         self.client = Client()
 
+    def navbar_test(self,soup):
+        navbar = soup.nav
+        self.assertIn('Blog',navbar.text)
+        self.assertIn('About Me',navbar.text)
+
+        home_btn = navbar.find('a',text="Home") # home이라는 a요소를 찾아서 href 속성을 체크
+        self.assertEqual(home_btn.attrs['href'],'/')
+
+        blog_btn = navbar.find('a',text="Blog")
+        self.assertEqual(blog_btn.attrs['href'],'/blog/')
+
+        about_me_btn = navbar.find('a',text="About Me")
+        self.assertEqual(about_me_btn.attrs['href'],'/about_me/')
+
     def test_post_list(self):
         #1.1
         response = self.client.get('/blog/')
@@ -16,10 +30,7 @@ class TestView(TestCase):
         soup = BeautifulSoup(response.content, 'html.parser')
         self.assertEqual(soup.title.text,'Blog')
         #1.4
-        navbar = soup.nav
-        #1.5
-        self.assertIn('Blog',navbar.text)
-        self.assertIn('About Me',navbar.text)
+        self.navbar_test(soup)
 
         #2.1
         self.assertEqual(Post.objects.count(),0)
@@ -65,9 +76,7 @@ class TestView(TestCase):
         soup = BeautifulSoup(response.content,'html.parser')
 
         #2.2
-        navbar = soup.nav
-        self.assertIn('Blog',navbar.text)
-        self.assertIn('About Me',navbar.text)
+        self.navbar_test(soup)
 
         #2.3
         self.assertIn(post_001.title,soup.title.text)
