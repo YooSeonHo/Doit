@@ -34,6 +34,16 @@
                         <!-- Post content-->
                         <section class="mb-5">
                             <p>{{ post.content }}</p>
+
+                            {% if post.tags.exists %}
+                                <i class='fas fa-tag'></i>
+                            {% for tag in post.tags.iterator %}
+                                <a href='{{ tag.get_absolute_url }}'><span class='badge badge-pill badge-light'>{{ tag }}</span></a>
+                            {% endfor %}
+                                <br/>
+                                <br/>
+                            {% endif %}
+
                             {% if post.file_upload %}
                                 <a href="{{ post.file_upload.url }}" class="btn btn-outline-secondary" role="button" download>Download</a>
                             {% endif %}
