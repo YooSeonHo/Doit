@@ -11,6 +11,8 @@ class TestView(TestCase):
         self.client = Client()
         self.user_tjsgh = User.objects.create_user(username='tjsgh',password='somepassword')
         self.user_seonho = User.objects.create_user(username='seonho',password='somepassword')
+        self.user_tjsgh.is_staff = True
+        self.user_tjsgh.save()
         self.category_programming = Category.objects.create(name='programming',slug='programming')
         self.category_music = Category.objects.create(name='music',slug='music')
 
@@ -180,6 +182,10 @@ class TestView(TestCase):
     def test_create_post(self):
         response = self.client.get('/blog/create_post')
         self.assertNotEqual(response.status_code,200)
+
+        self.client.login(username='seonho', password ='somepassword')
+        response = self.client.get('/blog/create_post/')
+        self.assertNotEqual(response.status_code, 200)
 
         self.client.login(username='tjsgh', password='somepassword')
 
