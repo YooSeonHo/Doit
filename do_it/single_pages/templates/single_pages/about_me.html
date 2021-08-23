@@ -1,20 +1,66 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>나는야 선호맨 ㅋ</title>
+    <title>유선호란?</title>
+    <link rel="stylesheet" href="{% static 'blog/bootstrap/bootstrap.min.css' %}" media="screen">
+    <link rel='stylesheet' href="{% static 'single_pages/css/about_me.css' %}" media="screen">
+
+    <script src="https://kit.fontawesome.com/726bbd6862.js" crossorigin="anonymous"></script>
 </head>
 <body>
+{% include 'blog/navbar.html' %}
 
-<nav>
-    <a href="/blog/">Blog</a>
-    <a href="/about_me/">About Me</a>
-</nav>
+<section>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1>안녕하세요 유선호입니다.</h1>
+                <br/>
+                <p class='lead'>
+                    멋쟁이 사자처럼에서 한가닥하는게 꿈입니다
+                    장고 너무 어려워요
+                </p>
 
-<h1>안녕하세요 선호맨입니다.</h1>
-<h2>이력</h2>
-<h2>Portfolio</h2>
-<h3>아직 공사중입니다.</h3>
-    
+                <ul>
+                    <li>경력 사항</li>
+                    <ul>
+                        <li>멋사맨</li>
+                    </ul>
+                </ul>
+            </div>
+            <div class='col-lg-4'>
+                <img class='img-fluid' src="{% static 'single_pages/images/1.jpg' %}">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class='bg-light margin-for-footer'>
+    <div class="container">
+        <div class='row'>
+            <div class="col-12">
+                <h1>PORTFOLIO</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div class='fixed-bottom'>
+    {% include 'blog/footer.html' %}
+</div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
 </body>
 </html>
