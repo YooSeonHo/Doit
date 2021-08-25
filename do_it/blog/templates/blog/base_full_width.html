@@ -21,43 +21,8 @@
                 {% block main_area %}
                 {% endblock %}
             </div>
-
-            <div class="col-md-4 col-lg-3">
-                <!-- Search Widget -->
-                <div class="card my-4">
-                    <h5 class="card-header">Search</h5>
-                    <div class="card-body">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search for...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-secondary" type="button">Go!</button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Categories Widget -->
-                <div class="card my-4" id="categories-card">
-                    <h5 class="card-header">Categories</h5>
-                    <div class="card-body">
-                        <div class="row">
-                                <ul>
-                                    {% for category in categories %}
-                                    <li>
-                                        <a href="{{ category.get_absolute_url }}">{{ category }}({{ category.post_set.count }})</a>
-                                    </li>
-                                    {% endfor %}
-                                    <li>
-                                        <a href="/blog/category/no_category/">미분류 ({{ no_category_post_count }})</a>
-                                    </li>
-                                </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
-
     <!-- Footer -->
     {% include 'blog/footer.html' %}
 
@@ -71,6 +36,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
+    
 
 </body>
 
